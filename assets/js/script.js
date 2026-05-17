@@ -2,17 +2,17 @@
 const typingTexts = {
     es: [
         'Automatizando el caos desde 2012...',
-        'Service Lead QA Automation @ Haka Lab',
+        'Gerente de Innovación @ Haka Lab',
         'Creador de Judo Framework',
-        'Instructor | Escritor | Psicologo',
-        'La pina NO va en la pizza'
+        'Instructor en Centyc | Escritor',
+        'Experto en calidad de software'
     ],
     en: [
         'Automating chaos since 2012...',
-        'Service Lead QA Automation @ Haka Lab',
+        'Gerente de Innovación @ Haka Lab',
         'Creator of Judo Framework',
-        'Instructor | Writer | Psychologist',
-        'Pineapple does NOT go on pizza'
+        'Instructor at Centyc | Writer',
+        'Software quality expert'
     ]
 };
 
@@ -115,5 +115,79 @@ window.addEventListener('scroll', function() {
         if (link.getAttribute('href') === '#' + current) {
             link.style.borderColor = 'var(--border-color)';
         }
+    });
+});
+
+
+// Skills Taskbar Windows
+document.querySelectorAll('.taskbar-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('data-target');
+
+        // Remove active from all buttons
+        document.querySelectorAll('.taskbar-btn').forEach(function(b) {
+            b.classList.remove('active');
+        });
+        btn.classList.add('active');
+
+        // Hide all windows, show target
+        document.querySelectorAll('.skill-window').forEach(function(win) {
+            win.removeAttribute('data-active');
+        });
+        document.getElementById(targetId).setAttribute('data-active', 'true');
+    });
+});
+
+
+// Projects subtitle typing effect
+(function() {
+    var projectsTyped = document.getElementById('projectsTyped');
+    var subtitle = projectsTyped.parentElement;
+    var text = subtitle.getAttribute('data-' + currentLang);
+    var typed = false;
+
+    function typeText(el, str) {
+        var i = 0;
+        el.textContent = '';
+        function step() {
+            if (i < str.length) {
+                el.textContent += str.charAt(i);
+                i++;
+                setTimeout(step, 50);
+            }
+        }
+        step();
+    }
+
+    var projObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !typed) {
+                typed = true;
+                typeText(projectsTyped, text);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    projObserver.observe(subtitle);
+
+    // Update on language change
+    langToggle.addEventListener('click', function() {
+        var newText = subtitle.getAttribute('data-' + currentLang);
+        typed = false;
+        projectsTyped.textContent = '';
+        setTimeout(function() {
+            typed = true;
+            typeText(projectsTyped, newText);
+        }, 300);
+    });
+})();
+
+// Project Cards Flip Animation
+document.querySelectorAll('.project-card').forEach(function(card) {
+    card.addEventListener('mouseenter', function() {
+        this.classList.add('flipped');
+    });
+    card.addEventListener('mouseleave', function() {
+        this.classList.remove('flipped');
     });
 });
