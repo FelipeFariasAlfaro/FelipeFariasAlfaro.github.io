@@ -77,11 +77,6 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
 .taskbar-icon{font-size:24px}
 .taskbar-label{font-family:var(--font-pixel);font-size:7px;color:var(--text-secondary)}
 .taskbar-btn.active .taskbar-label{color:var(--text-primary)}
-@media(max-width:768px){
-    .skills-desktop{flex-direction:column-reverse}
-    .skills-taskbar{flex-direction:row;justify-content:center}
-    .skills-windows{min-height:280px}
-}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .projects-subtitle{font-family:var(--font-terminal);font-size:16px;color:var(--text-secondary);margin-bottom:24px}
 .project-card{background:var(--bg-card);border:2px solid var(--text-dim);aspect-ratio:1;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color 0.3s, box-shadow 0.3s}
@@ -132,8 +127,6 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
     .pixel-nav ul{flex-direction:column;gap:0;padding:0;justify-content:flex-start}
     .pixel-nav a{display:block;padding:12px 20px;border:none;border-bottom:1px solid var(--text-dim);width:100%;text-align:left;font-size:11px}
     .pixel-nav a:hover{border-color:var(--border-color);background:rgba(0,255,65,0.1)}
-    .pixel-nav ul{gap:8px;padding:0 10px}
-    .pixel-nav a{font-size:7px;padding:4px 6px}
     .hero{padding:70px 15px 30px}
     .hero-name{font-size:16px}
     .hero-title{font-size:14px}
@@ -152,16 +145,18 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
     .timeline-desc{font-size:13px}
     .skills-desktop{flex-direction:column-reverse;gap:15px}
     .skills-taskbar{flex-direction:row;justify-content:center;flex-wrap:wrap}
-    .skills-windows{min-height:250px}
-    .skill-window{border:1px solid var(--text-dim)}
+    .skills-windows{min-height:250px;width:100%}
+    .skill-window{border:1px solid var(--text-dim);width:100%}
     .window-body{padding:15px}
-    .window-body li{font-size:13px;padding:4px 0}
+    .window-body li{font-size:13px;padding:4px 0;white-space:normal;word-break:break-word}
     .taskbar-btn{padding:10px 12px;min-width:60px}
     .taskbar-icon{font-size:20px}
     .taskbar-label{font-size:6px}
     .projects-grid{grid-template-columns:1fr;gap:15px}
     .projects-subtitle{font-size:14px;margin-bottom:15px}
-    .project-card{aspect-ratio:1}
+    .project-card{aspect-ratio:1;max-height:280px}
+    .project-card-front{padding:20px;padding-top:40px}
+    .project-card-back{padding:20px}
     .project-card h3{font-size:10px;margin-bottom:8px}
     .project-card p{font-size:12px;margin-bottom:10px}
     .project-link{font-size:8px}
@@ -223,6 +218,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
     .taskbar-label{font-size:5px}
     .projects-grid{grid-template-columns:1fr;gap:12px}
     .projects-subtitle{font-size:12px;margin-bottom:12px}
+    .project-card{aspect-ratio:1;max-height:240px}
     .project-card-front{padding:20px;padding-top:40px}
     .project-card-back{padding:20px}
     .project-card h3{font-size:9px;margin-bottom:6px}
