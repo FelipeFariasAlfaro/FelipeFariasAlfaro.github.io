@@ -152,7 +152,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
     .taskbar-btn{padding:10px 12px;min-width:60px}
     .taskbar-icon{font-size:20px}
     .taskbar-label{font-size:6px}
-    .projects-grid{grid-template-columns:1fr;gap:15px}
+    .projects-grid{grid-template-columns:1fr;gap:15px;max-width:320px;margin:0 auto}
     .projects-subtitle{font-size:14px;margin-bottom:15px}
     .project-card{aspect-ratio:1;max-height:280px}
     .project-card-front{padding:20px;padding-top:40px}
@@ -216,7 +216,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
     .taskbar-btn{padding:8px 10px;min-width:50px}
     .taskbar-icon{font-size:18px}
     .taskbar-label{font-size:5px}
-    .projects-grid{grid-template-columns:1fr;gap:12px}
+    .projects-grid{grid-template-columns:1fr;gap:12px;max-width:280px;margin:0 auto}
     .projects-subtitle{font-size:12px;margin-bottom:12px}
     .project-card{aspect-ratio:1;max-height:240px}
     .project-card-front{padding:20px;padding-top:40px}
