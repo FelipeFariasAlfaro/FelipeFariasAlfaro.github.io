@@ -1,4 +1,30 @@
-﻿// Typing Effect
+﻿// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const pixelNav = document.getElementById('pixelNav');
+const menuOverlay = document.getElementById('menuOverlay');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+        pixelNav.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.pixel-nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            pixelNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking on overlay
+    menuOverlay.addEventListener('click', function() {
+        pixelNav.classList.remove('active');
+        menuOverlay.classList.remove('active');
+    });
+}
+
+// Typing Effect
 const typingTexts = {
     es: [
         'Automatizando el caos desde 2012...',
