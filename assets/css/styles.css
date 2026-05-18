@@ -124,18 +124,119 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;point
 @media(max-width:768px){
     .pixel-nav ul{gap:8px;padding:0 10px}
     .pixel-nav a{font-size:7px;padding:4px 6px}
+    .hero{padding:70px 15px 30px}
     .hero-name{font-size:16px}
-    .hero-title{font-size:18px}
-    .section-title{font-size:12px}
-    .terminal-window{max-width:100%}
-    .typing-line{font-size:18px}
-    .about-content{flex-direction:column-reverse;text-align:center}
-    .timeline{padding-left:20px}
-    .lang-toggle{top:55px;right:10px}
+    .hero-title{font-size:14px}
+    .terminal-window{max-width:100%;margin-bottom:20px}
+    .terminal-body{padding:15px;min-height:50px}
+    .typing-line{font-size:14px}
+    .section{padding:50px 15px}
+    .section-title{font-size:12px;margin-bottom:25px}
+    .about-content{flex-direction:column-reverse;text-align:center;gap:20px}
+    .about-text p{font-size:14px;margin-bottom:12px}
+    .pixel-avatar{width:100px;height:100px}
+    .timeline{padding-left:15px}
+    .timeline-item{margin-bottom:25px;padding-left:15px}
+    .timeline-marker{left:-22px}
+    .timeline-role{font-size:16px}
+    .timeline-desc{font-size:13px}
+    .skills-desktop{flex-direction:column-reverse;gap:15px}
+    .skills-taskbar{flex-direction:row;justify-content:center;flex-wrap:wrap}
+    .skills-windows{min-height:250px}
+    .skill-window{border:1px solid var(--text-dim)}
+    .window-body{padding:15px}
+    .window-body li{font-size:13px;padding:4px 0}
+    .taskbar-btn{padding:10px 12px;min-width:60px}
+    .taskbar-icon{font-size:20px}
+    .taskbar-label{font-size:6px}
+    .projects-grid{grid-template-columns:1fr;gap:15px}
+    .projects-subtitle{font-size:14px;margin-bottom:15px}
+    .project-card{aspect-ratio:1}
+    .project-card h3{font-size:10px;margin-bottom:8px}
+    .project-card p{font-size:12px;margin-bottom:10px}
+    .project-link{font-size:8px}
+    .project-logo-large{max-width:60px}
+    .project-logo-medium{max-width:110px}
+    .project-logo-large-plus{max-width:130px}
+    .project-logo-xlarge{max-width:160px}
+    .publications-list{grid-template-columns:1fr;gap:15px}
+    .publication-item{padding:15px;gap:12px}
+    .pub-icon{font-size:24px}
+    .publication-item h3{font-size:14px}
+    .pub-type{font-size:12px}
+    .courses-list{grid-template-columns:1fr;gap:15px}
+    .courses-subtitle{font-size:14px;margin-bottom:15px}
+    .course-item{padding:15px;gap:12px}
+    .course-icon{font-size:24px}
+    .course-item h3{font-size:14px}
+    .course-platform{font-size:12px}
+    .contact-grid{grid-template-columns:1fr;gap:12px}
+    .contact-item{padding:12px 15px;font-size:13px;gap:10px}
+    .contact-icon{font-size:20px}
+    .pixel-footer{padding:20px 15px;font-size:12px}
+    .lang-toggle{top:55px;right:10px;font-size:9px;padding:6px 10px}
+    .pixel-btn{font-size:10px;padding:10px 20px}
 }
 @media(max-width:480px){
-    .pixel-nav ul{gap:4px}
-    .pixel-nav a{font-size:6px}
-    .hero-name{font-size:13px}
-    .projects-grid{grid-template-columns:1fr}
+    .pixel-nav{padding:8px 0}
+    .pixel-nav ul{gap:4px;padding:0 5px}
+    .pixel-nav a{font-size:6px;padding:3px 4px}
+    .hero{padding:60px 12px 25px;min-height:80vh}
+    .hero-name{font-size:12px}
+    .hero-title{font-size:12px}
+    .terminal-window{margin-bottom:15px}
+    .terminal-header{padding:6px 10px}
+    .terminal-title{font-size:11px;margin-left:6px}
+    .terminal-body{padding:12px;min-height:40px}
+    .typing-line{font-size:12px}
+    .section{padding:40px 12px}
+    .section-title{font-size:11px;margin-bottom:20px}
+    .about-content{gap:15px}
+    .about-text p{font-size:13px;margin-bottom:10px}
+    .pixel-avatar{width:80px;height:80px}
+    .timeline{padding-left:12px}
+    .timeline-item{margin-bottom:20px;padding-left:12px}
+    .timeline-marker{left:-20px;width:10px;height:10px}
+    .timeline-date{font-size:8px}
+    .timeline-role{font-size:14px}
+    .timeline-company{font-size:9px}
+    .timeline-desc{font-size:12px}
+    .skills-desktop{gap:10px}
+    .skills-taskbar{gap:8px}
+    .skill-window{border:1px solid var(--text-dim)}
+    .window-titlebar{padding:8px 10px}
+    .window-title{font-size:8px}
+    .window-body{padding:12px}
+    .window-body li{font-size:12px;padding:3px 0}
+    .taskbar-btn{padding:8px 10px;min-width:50px}
+    .taskbar-icon{font-size:18px}
+    .taskbar-label{font-size:5px}
+    .projects-grid{grid-template-columns:1fr;gap:12px}
+    .projects-subtitle{font-size:12px;margin-bottom:12px}
+    .project-card-front{padding:20px;padding-top:40px}
+    .project-card-back{padding:20px}
+    .project-card h3{font-size:9px;margin-bottom:6px}
+    .project-card p{font-size:11px;margin-bottom:8px}
+    .project-link{font-size:7px}
+    .project-logo-large{max-width:50px}
+    .project-logo-medium{max-width:90px}
+    .project-logo-large-plus{max-width:110px}
+    .project-logo-xlarge{max-width:140px}
+    .publications-list{grid-template-columns:1fr;gap:12px}
+    .publication-item{padding:12px;gap:10px}
+    .pub-icon{font-size:20px}
+    .publication-item h3{font-size:13px}
+    .pub-type{font-size:11px}
+    .courses-list{grid-template-columns:1fr;gap:12px}
+    .courses-subtitle{font-size:12px;margin-bottom:12px}
+    .course-item{padding:12px;gap:10px}
+    .course-icon{font-size:20px}
+    .course-item h3{font-size:13px}
+    .course-platform{font-size:11px}
+    .contact-grid{grid-template-columns:1fr;gap:10px}
+    .contact-item{padding:10px 12px;font-size:12px;gap:8px}
+    .contact-icon{font-size:18px}
+    .pixel-footer{padding:15px 12px;font-size:11px}
+    .lang-toggle{top:50px;right:8px;font-size:8px;padding:5px 8px}
+    .pixel-btn{font-size:9px;padding:8px 16px}
 }
