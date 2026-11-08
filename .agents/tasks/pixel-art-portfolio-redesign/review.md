@@ -1,0 +1,7 @@
+# Review evidence
+
+Reviewed the supplied implementation record and the changed `index.html`, `assets/css/styles.css`, and `assets/js/script.js` against the approved redesign. The CSS constructs a colorful pixel-art room, desk, CRT, furniture, and seven decor hotspots without image assets. Each required portfolio category has both a room hotspot and fallback menu control mapped to a corresponding panel. The dialog has a close button and Escape/backdrop closing, and the prior reverse-Tab finding is fixed: `openWindow()` now focuses the close button, which the existing first/last focus trap keeps within the open dialog.
+
+The Spanish/English update only replaces elements with paired language attributes. Rich text that contains links is split into translated spans around the anchors, preserving those nested links. A comparison with the original confirms every portfolio mail/external URL remains; removed `#section` navigation URLs were intentionally replaced by window controls, and the removed Google Fonts URL only drops the unused Inter family. Responsive mobile rules, visible keyboard focus styling, a skip link, a discoverability hint, and reduced-motion rules are present. The coder-recorded verification reports `node --check assets/js/script.js`, seven panels and controls, dialog accessibility and focus wrapping, 25 retained mail/external links, and mobile/reduced-motion coverage; suites were not rerun.
+
+No material correctness, security, data, accessibility, or requirement-compliance blockers remain.

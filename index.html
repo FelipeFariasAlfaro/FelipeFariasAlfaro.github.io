@@ -3,431 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe Farías A. | QA Automation Lead</title>
-    <meta name="description" content="Felipe Farías Alfaro - Innovation and Services Manager, Instructor, Writer">
+    <meta name="description" content="Felipe Farías Alfaro - QA Automation, innovación, educación y software.">
+    <title>Felipe Farías A. | Developer Desk</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/images/room.webp">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261107">
 </head>
 <body>
-    <button class="lang-toggle" id="langToggle" aria-label="Toggle language">EN</button>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <nav class="pixel-nav" id="pixelNav">
-        <ul>
-            <li><a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
-            <li><a href="#experience" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
-            <li><a href="#skills" data-es="Skills" data-en="Skills">Skills</a></li>
-            <li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
-            <li><a href="#publications" data-es="Publicaciónes" data-en="Publications">Publicaciónes</a></li>
-            <li><a href="#courses" data-es="Cursos" data-en="Courses">Cursos</a></li>
-            <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
-        </ul>
-    </nav>
-    <header class="hero">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <span class="terminal-dot red"></span>
-                <span class="terminal-dot yellow"></span>
-                <span class="terminal-dot green"></span>
-                <span class="terminal-title">felipe@portfolio:~$</span>
+    <a class="skip-link" href="#sceneNav" data-es="Saltar al menú de secciones" data-en="Skip to section menu">Saltar al menú de secciones</a>
+
+    <!-- Controles y menú: misma funcionalidad que los objetos del escritorio -->
+    <div class="deck">
+        <p class="scene-hint" id="sceneHint">
+            <span aria-hidden="true" class="hint-arrow">▸</span>
+            <span data-es="Haz clic en los objetos del escritorio, o usa el menú" data-en="Click the objects on the desk, or use the menu">Haz clic en los objetos del escritorio, o usa el menú</span>
+        </p>
+        <div class="deck-row">
+            <nav class="scene-nav" id="sceneNav" aria-label="Secciones del portafolio">
+                <button type="button" data-window="about" data-es="Sobre mí" data-en="About">Sobre mí</button>
+                <button type="button" data-window="experience" data-es="Experiencia" data-en="Experience">Experiencia</button>
+                <button type="button" data-window="skills" data-es="Habilidades" data-en="Skills">Habilidades</button>
+                <button type="button" data-window="projects" data-es="Proyectos" data-en="Projects">Proyectos</button>
+                <button type="button" data-window="publications" data-es="Publicaciones" data-en="Publications">Publicaciones</button>
+                <button type="button" data-window="courses" data-es="Cursos" data-en="Courses">Cursos</button>
+                <button type="button" data-window="contact" data-es="Contacto" data-en="Contact">Contacto</button>
+            </nav>
+            <div class="deck-actions">
+                <button class="pbtn" id="revealToggle" type="button" aria-pressed="false">
+                    <span data-es="¿Qué puedo tocar?" data-en="What can I click?">¿Qué puedo tocar?</span>
+                </button>
+                <button class="pbtn" id="langToggle" type="button" aria-label="Change language" aria-pressed="false">EN</button>
             </div>
-            <div class="terminal-body">
-                <p class="typing-line">
-                    <span class="prompt">&gt;</span>
-                    <span class="typed-text" id="heroTyped"></span>
-                    <span class="cursor">_</span>
+        </div>
+    </div>
+
+    <div class="stage">
+        <div class="scene" id="scene">
+            <picture>
+                <source srcset="assets/images/room.webp" type="image/webp">
+                <img class="scene-img" src="assets/images/fondo_pixel.jpeg" width="2752" height="1536"
+                     alt="Escritorio de desarrollador en pixel art: monitor CRT, torre de PC, diploma, lámpara, taza de café, cuaderno y estante con libros."
+                     fetchpriority="high" decoding="async">
+            </picture>
+
+            <!-- Pantalla CRT viva: código que corre sobre el área negra del monitor.
+                 Decorativo, no intercepta clics (el hotspot "Proyectos" va encima). -->
+            <div class="screen-fx" aria-hidden="true">
+                <div class="screen-fx-scroll">
+                    <pre class="screen-fx-code"></pre>
+                    <pre class="screen-fx-code" aria-hidden="true"></pre>
+                </div>
+                <div class="screen-fx-title">PROYECTOS / PORTAFOLIO</div>
+                <div class="screen-fx-scan"></div>
+                <div class="screen-fx-glow"></div>
+            </div>
+
+            <!-- Parpadeo de la lámpara: oscurece levemente el cono de luz
+                 cada ciertos segundos, como un contacto flojo. Decorativo. -->
+            <div class="lamp-flicker" aria-hidden="true"></div>
+
+            <!-- Identidad sobre la pared (no intercepta clics) -->
+            <div class="hud hud-top">
+                <p class="hud-name">Felipe Farías A.</p>
+                <p class="hud-role">
+                    <span data-es="Gerente de Innovación en " data-en="Innovation Manager at ">Gerente de Innovación en </span><a href="https://hakalab.com" target="_blank" rel="noopener">Haka Lab</a><span data-es=" · Instructor · Escritor" data-en=" · Instructor · Writer"> · Instructor · Escritor</span>
                 </p>
             </div>
-        </div>
-        <h1 class="hero-name pixel-text">Felipe Farías A.</h1>
-        <p class="hero-title">Gerente de Innovación en <a href="https://hakalab.com" target="_blank" class="hero-link">Haka Lab</a> | Instructor en <a href="https://centyc.cl" target="_blank" class="hero-link">Centyc</a> | Escritor</p>
-        <div class="hero-cta">
-            <a href="#about" class="pixel-btn" data-es="[ Explorar ]" data-en="[ Explore ]">[ Explorar ]</a>
-        </div>
-    </header>
-    <section id="about" class="section">
-        <h2 class="section-title pixel-text" data-es="// Sobre mí" data-en="// About me">// Sobre mí</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p data-es="Chileno, actualmente viviendo en Puerto Montt. Me encanta la tecnología. Constantemente estoy creando software para testing, automatización y calidad." data-en="Chilean, currently living in Puerto Montt. I love technology. I am constantly creating software for testing, automation and quality.">Chileno, actualmente viviendo en Puerto Montt. Me encanta la tecnología. Constantemente estoy creando software para testing, automatización y calidad.</p>
-                <p data-es="Creador de Judo Framework, Hakabuddy, Hakapath, Hakaboost, HakaInsight, Haka AI Studio y Tell me Human." data-en="Creator of Judo Framework, Hakabuddy, Hakapath, Hakaboost, HakaInsight, Haka AI Studio and Tell me Human.">Creador de Judo Framework, Hakabuddy, Hakapath, Hakaboost, HakaInsight, Haka AI Studio y Tell me Human.</p>
-                <p data-es="He escrito dos libros y muchos artículos. Hago clases de automatización y calidad en Udemy y Centyc.cl." data-en="I have written two books and many articles. I teach automation and quality at Udemy and Centyc.cl.">He escrito dos libros y muchos artículos. Hago clases de automatización y calidad en Udemy y Centyc.cl.</p>
 
-            </div>
-            <div class="about-avatar">
-                <div class="pixel-avatar"><img src="assets/images/felipe.png" alt="Felipe Farías" class="avatar-img"></div>
-            </div>
+            <!-- Zonas interactivas sobre la ilustración -->
+            <button class="spot spot-screen" type="button" data-window="projects" data-hint-es="Proyectos" data-hint-en="Projects" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Proyectos" data-en="Projects">Proyectos</span>
+            </button>
+
+            <button class="spot spot-diploma" type="button" data-window="experience" data-hint-es="Experiencia" data-hint-en="Experience" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Experiencia" data-en="Experience">Experiencia</span>
+            </button>
+
+            <button class="spot spot-books" type="button" data-window="publications" data-hint-es="Publicaciones" data-hint-en="Publications" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Publicaciones" data-en="Publications">Publicaciones</span>
+            </button>
+
+            <button class="spot spot-posters" type="button" data-window="courses" data-hint-es="Cursos" data-hint-en="Courses" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Cursos" data-en="Courses">Cursos</span>
+            </button>
+
+            <!-- La torre va después del póster: donde sus cajas se solapan,
+                 el dibujo que hay es la torre, así que debe ganar el clic. -->
+            <button class="spot spot-tower" type="button" data-window="skills" data-hint-es="Habilidades" data-hint-en="Skills" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Habilidades" data-en="Skills">Habilidades</span>
+            </button>
+
+            <button class="spot spot-mug" type="button" data-window="about" data-hint-es="Sobre mí" data-hint-en="About me" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Sobre mí" data-en="About me">Sobre mí</span>
+            </button>
+
+            <button class="spot spot-figures" type="button" data-window="about" data-hint-es="Sobre mí" data-hint-en="About me" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Sobre mí" data-en="About me">Sobre mí</span>
+            </button>
+
+            <button class="spot spot-notebook" type="button" data-window="contact" data-hint-es="Contacto" data-hint-en="Contact" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Contacto" data-en="Contact">Contacto</span>
+            </button>
+
+            <button class="spot spot-phone" type="button" data-window="contact" data-hint-es="Contacto" data-hint-en="Contact" aria-haspopup="dialog">
+                <span class="spot-frame" aria-hidden="true"></span>
+                <span class="spot-tip" data-es="Contacto" data-en="Contact">Contacto</span>
+            </button>
+
         </div>
-    </section>
-    <section id="experience" class="section">
-        <h2 class="section-title pixel-text" data-es="// Experiencia" data-en="// Experience">// Experiencia</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">2026 - Present</div>
-                    <h3 class="timeline-role" data-es="Gerente de Innovación y Servicios" data-en="Innovation and Services Manager">Gerente de Innovación y Servicios</h3>
-                    <p class="timeline-company"><a href="https://hakalab.com" target="_blank" class="company-link">Haka Lab</a></p>
+    </div>
+
+    <div class="window-layer" id="windowLayer" hidden>
+        <div class="window-backdrop" data-close-window></div>
+        <section class="retro-window" id="portfolioWindow" role="dialog" aria-modal="true" aria-labelledby="windowTitle" tabindex="-1">
+            <header class="window-bar">
+                <span class="window-icon" aria-hidden="true"></span>
+                <p id="windowTitle">PERFIL.DAT</p>
+                <span class="window-grip" aria-hidden="true"></span>
+                <div class="window-controls">
+                    <button class="win-btn" type="button" data-close-window aria-label="Minimizar ventana" data-label-es="Minimizar ventana" data-label-en="Minimize window"><span aria-hidden="true">_</span></button>
+                    <button class="win-btn win-max" type="button" data-maximize-window aria-pressed="false" aria-label="Maximizar ventana" data-label-es="Maximizar ventana" data-label-en="Maximize window"><span aria-hidden="true">□</span></button>
+                    <button class="win-btn close-window" type="button" data-close-window aria-label="Cerrar ventana" data-label-es="Cerrar ventana" data-label-en="Close window"><span aria-hidden="true">×</span></button>
                 </div>
+            </header>
+            <!-- barra de menú decorativa, sólo para el look de sistema operativo -->
+            <div class="window-menu" aria-hidden="true">
+                <span data-es="Archivo" data-en="File">Archivo</span>
+                <span data-es="Editar" data-en="Edit">Editar</span>
+                <span data-es="Ver" data-en="View">Ver</span>
+                <span data-es="Ayuda" data-en="Help">Ayuda</span>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">2023 - 2026</div>
-                    <h3 class="timeline-role">Service Lead QA Automation</h3>
-                    <p class="timeline-company"><a href="https://hakalab.com" target="_blank" class="company-link">Haka Lab</a></p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">2020 - 2023</div>
-                    <h3 class="timeline-role">Automation QA &amp; Technical Lead</h3>
-                    <p class="timeline-company"><a href="https://hakalab.com" target="_blank" class="company-link">Haka Lab</a></p>
-                    <p class="timeline-desc" data-es="Pruebas automatizadas frontend y backend: Rest, Soap, BD, SPs. Java, Cucumber, Selenium, Maven, Git, Jira + XRay." data-en="Automated frontend and backend testing: Rest, Soap, DB, SPs. Java, Cucumber, Selenium, Maven, Git, Jira + XRay.">Pruebas automatizadas frontend y backend: Rest, Soap, BD, SPs. Java, Cucumber, Selenium, Maven, Git, Jira + XRay.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2020</div>
-                    <h3 class="timeline-role" data-es="Programador de Software" data-en="Software Developer">Programador de Software</h3>
-                    <p class="timeline-company">Beehex</p>
-                    <p class="timeline-desc">Java, C#, JSP, PHP, Bootstrap, HTML5, jQuery, Git, MySQL, SQL Server, Oracle 11g.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">2014 - 2015</div>
-                    <h3 class="timeline-role" data-es="Programador Java" data-en="Java Developer">Programador Java</h3>
-                    <p class="timeline-company">Trebol</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <div class="timeline-date">2012 - 2014</div>
-                    <h3 class="timeline-role" data-es="Técnico Informático" data-en="IT Technician">Técnico Informático</h3>
-                    <p class="timeline-company">Coasin</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="skills" class="section">
-        <h2 class="section-title pixel-text">// Skills</h2>
-        <div class="skills-desktop">
-            <div class="skills-windows">
-                <div class="skill-window" id="win-qa" data-active="true">
-                    <div class="window-titlebar">
-                        <div class="window-dots">
-                            <span class="wdot red"></span>
-                            <span class="wdot yellow"></span>
-                            <span class="wdot green"></span>
+            <div class="window-content">
+                <article class="panel" id="about" data-title-es="PERFIL.DAT" data-title-en="PROFILE.DAT">
+                    <div class="profile-card">
+                        <div class="avatar-pixel"><img src="assets/images/felipe.png" alt="Felipe Farías"></div>
+                        <div>
+                            <h2 data-es="Sobre mí" data-en="About me">Sobre mí</h2>
+                            <p data-es="Chileno, actualmente viviendo en Puerto Montt. Me encanta la tecnología. Constantemente estoy creando software para testing, automatización y calidad." data-en="Chilean, currently living in Puerto Montt. I love technology. I am constantly creating software for testing, automation and quality.">Chileno, actualmente viviendo en Puerto Montt. Me encanta la tecnología. Constantemente estoy creando software para testing, automatización y calidad.</p>
                         </div>
-                        <span class="window-title" data-es="Automatización y QA" data-en="Automation and QA">Automatización y QA</span>
                     </div>
-                    <div class="window-body">
-                        <ul>
-                            <li>Selenium</li>
-                            <li>Cucumber / Gherkin</li>
-                            <li>Playwright</li>
-                            <li>Cypress</li>
-                            <li>API Testing (REST/SOAP)</li>
-                            <li>Postman / SoapUI</li>
-                            <li>Xray</li>
-                        </ul>
+                    <p data-es="Creador de QAPI, Judo Framework, Hakabuddy, Hakapath, Hakaboost, Haka Agentic IDE y Tell me Human." data-en="Creator of QAPI, Judo Framework, Hakabuddy, Hakapath, Hakaboost, Haka Agentic IDE and Tell me Human.">Creador de QAPI, Judo Framework, Hakabuddy, Hakapath, Hakaboost, Haka Agentic IDE y Tell me Human.</p>
+                    <p data-es="He escrito dos libros y muchos artículos. Hago clases de automatización y calidad en Udemy y Centyc.cl." data-en="I have written two books and many articles. I teach automation and quality at Udemy and Centyc.cl.">He escrito dos libros y muchos artículos. Hago clases de automatización y calidad en Udemy y Centyc.cl.</p>
+                </article>
+
+                <article class="panel" id="experience" data-title-es="EXPERIENCIA.LOG" data-title-en="EXPERIENCE.LOG">
+                    <h2 data-es="Experiencia" data-en="Experience">Experiencia</h2>
+                    <ol class="timeline">
+                        <li><time>2026 — <span data-es="Actualidad" data-en="Present">Actualidad</span></time><h3 data-es="Gerente de Innovación y Servicios" data-en="Innovation and Services Manager">Gerente de Innovación y Servicios</h3><a href="https://hakalab.com" target="_blank" rel="noopener">Haka Lab</a></li>
+                        <li><time>2023 — 2026</time><h3>Service Lead QA Automation</h3><a href="https://hakalab.com" target="_blank" rel="noopener">Haka Lab</a></li>
+                        <li><time>2020 — 2023</time><h3>Automation QA &amp; Technical Lead</h3><a href="https://hakalab.com" target="_blank" rel="noopener">Haka Lab</a><p data-es="Pruebas automatizadas frontend y backend: Rest, Soap, BD, SPs. Java, Cucumber, Selenium, Maven, Git, Jira + XRay." data-en="Automated frontend and backend testing: Rest, Soap, DB, SPs. Java, Cucumber, Selenium, Maven, Git, Jira + XRay.">Pruebas automatizadas frontend y backend: Rest, Soap, BD, SPs. Java, Cucumber, Selenium, Maven, Git, Jira + XRay.</p></li>
+                        <li><time>2019 — 2020</time><h3 data-es="Programador de Software" data-en="Software Developer">Programador de Software</h3><strong>Beehex</strong><p>Java, C#, JSP, PHP, Bootstrap, HTML5, jQuery, Git, MySQL, SQL Server, Oracle 11g.</p></li>
+                        <li><time>2014 — 2015</time><h3 data-es="Programador Java" data-en="Java Developer">Programador Java</h3><strong>Trebol</strong></li>
+                        <li><time>2012 — 2014</time><h3 data-es="Técnico Informático" data-en="IT Technician">Técnico Informático</h3><strong>Coasin</strong></li>
+                    </ol>
+                </article>
+
+                <article class="panel" id="skills" data-title-es="HABILIDADES.SYS" data-title-en="SKILLS.SYS">
+                    <h2 data-es="Habilidades" data-en="Skills">Habilidades</h2>
+                    <div class="skills-grid">
+                        <section><h3 data-es="Automatización y QA" data-en="Automation and QA">Automatización y QA</h3><p>Selenium · Cucumber / Gherkin · Playwright · Cypress · API Testing (REST/SOAP) · Postman / SoapUI · Xray</p></section>
+                        <section><h3 data-es="Lenguajes y Frameworks" data-en="Languages and Frameworks">Lenguajes y Frameworks</h3><p>Java · C# · JavaScript · PHP · Maven · JUnit · BDD</p></section>
+                        <section><h3 data-es="Herramientas y Metodologías" data-en="Tools and Methodologies">Herramientas y Metodologías</h3><p>Git · Jira · SAFe / Agile / Scrum · MySQL / SQL Server / Oracle · CI/CD</p></section>
+                        <section><h3 data-es="Liderazgo y Educación" data-en="Leadership and Education">Liderazgo y Educación</h3><p><span data-es="Liderazgo técnico · Instructor Udemy y " data-en="Technical leadership · Udemy and ">Liderazgo técnico · Instructor Udemy y </span><a href="https://centyc.cl" target="_blank" rel="noopener">Centyc</a><span data-es=" · Creación de frameworks · Psicología" data-en=" · Framework creation · Psychology"> · Creación de frameworks · Psicología</span></p></section>
+                        <section><h3 data-es="Inteligencia Artificial" data-en="Artificial Intelligence">Inteligencia Artificial</h3><p data-es="Creación e integración de agentes de IA en aplicaciones y flujos de calidad. Uso estratégico de IA en ciclos de calidad, desarrollo de pruebas, ejecución, análisis y documentación. Vectorización y grafos. Testing a aplicaciones con IA Generativa: LLM como Juez y validaciones semánticas." data-en="Creation and integration of AI agents in applications and quality workflows. Strategic use of AI in quality cycles, test development, execution, analysis and documentation. Vectorization and graphs. Testing AI-powered applications: LLM as Judge and semantic validations.">Creación e integración de agentes de IA en aplicaciones y flujos de calidad. Uso estratégico de IA en ciclos de calidad, desarrollo de pruebas, ejecución, análisis y documentación. Vectorización y grafos. Testing a aplicaciones con IA Generativa: LLM como Juez y validaciones semánticas.</p></section>
                     </div>
-                </div>
-                <div class="skill-window" id="win-lang">
-                    <div class="window-titlebar">
-                        <div class="window-dots">
-                            <span class="wdot red"></span>
-                            <span class="wdot yellow"></span>
-                            <span class="wdot green"></span>
-                        </div>
-                        <span class="window-title" data-es="Lenguajes y Frameworks" data-en="Languages and Frameworks">Lenguajes y Frameworks</span>
+                </article>
+
+                <article class="panel" id="projects" data-title-es="PROYECTOS.EXE" data-title-en="PROJECTS.EXE">
+                    <h2 data-es="Proyectos" data-en="Projects">Proyectos</h2>
+                    <p class="panel-lead" data-es="Proyectos completamente creados por mí." data-en="Projects entirely created by me.">Proyectos completamente creados por mí.</p>
+                    <div class="card-grid">
+                        <section><div class="card-logo"><img src="assets/images/QAPI.png" alt="QAPI"></div><h3>QAPI</h3><p data-es="Extensión de VS Code con un agente de IA para QA y automatización: crea y corrige pruebas con el contexto de tu proyecto, usa memoria local que ahorra tokens y funciona con Gemini, Claude, OpenAI y Ollama." data-en="VS Code extension with an AI agent for QA and automation: it creates and fixes tests using your project's context, uses local memory that saves tokens, and works with Gemini, Claude, OpenAI and Ollama.">Extensión de VS Code con un agente de IA para QA y automatización: crea y corrige pruebas con el contexto de tu proyecto, usa memoria local que ahorra tokens y funciona con Gemini, Claude, OpenAI y Ollama.</p><a href="https://open-vsx.org/extension/centyc/qa-pi" target="_blank" rel="noopener" data-es="Ver más ↗" data-en="View ↗">Ver más ↗</a></section>
+                        <section><div class="card-logo"><img src="assets/images/judo_logo_black.png" alt="Judo Framework"></div><h3>Judo Framework</h3><p data-es="Framework Open Source de automatización de pruebas para API Rest en Python. Crea pruebas de api en minutos sin necesidad de crear código." data-en="Open Source test automation framework for REST APIs in Python. Create API tests in minutes without writing code.">Framework Open Source de automatización de pruebas para API Rest en Python. Crea pruebas de api en minutos sin necesidad de crear código.</p><a href="https://centyc.cl/judo-framework" target="_blank" rel="noopener" data-es="Ver más ↗" data-en="View ↗">Ver más ↗</a></section>
+                        <section><div class="card-logo"><img src="assets/images/HakaBuddy.png" alt="Hakabuddy"></div><h3>Hakabuddy</h3><p data-es="Aplicación de escritorio para automatizar la creación de reportes y pruebas de software. De lo manual, a la automatización iterativa y a un pipeline en minutos!" data-en="Desktop application to automate the creation of reports and software testing. From manual to iterative automation and a pipeline in minutes!">Aplicación de escritorio para automatizar la creación de reportes y pruebas de software. De lo manual, a la automatización iterativa y a un pipeline en minutos!</p><a href="https://hakalab.com/hakabuddy" target="_blank" rel="noopener" data-es="Ver más ↗" data-en="View ↗">Ver más ↗</a></section>
+                        <section><div class="card-logo"><img src="assets/images/Hakapath.png" alt="Hakapath"></div><h3>Hakapath</h3><p data-es="Complemento de Google Chrome que permite crear localizadores web para automatización con tan solo unos cliks." data-en="Google Chrome extension that allows you to create web locators for automation with just a few clicks.">Complemento de Google Chrome que permite crear localizadores web para automatización con tan solo unos cliks.</p><a href="https://hakalab.com/hakapath" target="_blank" rel="noopener" data-es="Ver más ↗" data-en="View ↗">Ver más ↗</a></section>
+                        <section><div class="card-logo"><img src="assets/images/HakaBoost.png" alt="Hakaboost"></div><h3>Hakaboost</h3><p data-es="Asistente de calidad de software impulsado por Inteligencia Artificial" data-en="AI-powered software quality assistant">Asistente de calidad de software impulsado por Inteligencia Artificial</p><a href="https://hakalab.com/hakaboost" target="_blank" rel="noopener" data-es="Ver más ↗" data-en="View ↗">Ver más ↗</a></section>
+                        <section><div class="card-logo"><img src="assets/images/AI Studio.png" alt="Haka Agentic IDE"></div><h3>Haka Agentic IDE</h3><p data-es="Entorno de desarrollo con agentes de IA integrados para crear, ejecutar y mantener pruebas automatizadas de principio a fin." data-en="Development environment with built-in AI agents to create, run and maintain automated tests end to end.">Entorno de desarrollo con agentes de IA integrados para crear, ejecutar y mantener pruebas automatizadas de principio a fin.</p><a href="https://hakalab.com/haka-agentic-ide" target="_blank" rel="noopener" data-es="Ver más ↗" data-en="View ↗">Ver más ↗</a></section>
                     </div>
-                    <div class="window-body">
-                        <ul>
-                            <li>Java</li>
-                            <li>C#</li>
-                            <li>JavaScript</li>
-                            <li>PHP</li>
-                            <li>Maven</li>
-                            <li>JUnit</li>
-                            <li>BDD</li>
-                        </ul>
+                </article>
+
+                <article class="panel" id="publications" data-title-es="PUBLICACIONES.TXT" data-title-en="PUBLICATIONS.TXT">
+                    <h2 data-es="Publicaciones" data-en="Publications">Publicaciones</h2>
+                    <ul class="plain-list">
+                        <li><a href="https://www.linkedin.com/in/felipefariasalfaro/recent-activity/articles/" target="_blank" rel="noopener" data-es="Artículos de LinkedIn ↗" data-en="LinkedIn articles ↗">Artículos de LinkedIn ↗</a><small data-es="Artículos" data-en="Articles">Artículos</small></li>
+                        <li><strong>El Camino de la Tragedia</strong><small data-es="Libro" data-en="Book">Libro</small></li>
+                        <li><strong data-es="Estudiar en tiempos convulsionados" data-en="Studying in turbulent times">Estudiar en tiempos convulsionados</strong><small data-es="Libro" data-en="Book">Libro</small></li>
+                        <li><strong data-es="Fragmentos sobre pesadillas y demonios" data-en="Fragments about nightmares and demons">Fragmentos sobre pesadillas y demonios</strong><small data-es="Publicación" data-en="Publication">Publicación</small></li>
+                    </ul>
+                </article>
+
+                <article class="panel" id="courses" data-title-es="CURSOS.CAT" data-title-en="COURSES.CAT">
+                    <h2 data-es="Mis cursos" data-en="My courses">Mis cursos</h2>
+                    <p class="panel-lead"><span data-es="Puedes encontrar todos mis cursos en " data-en="Find all my courses at ">Puedes encontrar todos mis cursos en </span><a href="https://centyc.cl" target="_blank" rel="noopener">centyc.cl</a><span data-es=" o en " data-en=" or "> o en </span><a href="https://www.udemy.com/user/felipe-farias-3/?srsltid=AfmBOorm9HhCnjv3YheHDjToAYg15PND3799oYuu1BxYFc-feqOu3wi0" target="_blank" rel="noopener">udemy.com</a>.</p>
+                    <ul class="plain-list course-list">
+                        <li><a href="https://www.udemy.com/course/intensivo-automatizacion-de-pruebas-con-karate/?referralCode=26D91D21EA272C36E24A" target="_blank" rel="noopener">[Actualizado] Automatización de Pruebas de API con Karate ↗</a><small>Udemy</small></li>
+                        <li><a href="https://www.udemy.com/course/playwright-desde-0-con-java/?referralCode=C9E1500A0895018ABF52" target="_blank" rel="noopener">PlayWright Desde 0 con Java y Cucumber ↗</a><small>Udemy</small></li>
+                        <li><a href="https://www.udemy.com/course/automatizacion-de-pruebas-con-selenium-y-java/?referralCode=8D9349B34DC4BDD4F976" target="_blank" rel="noopener">Master de Automatización desde 0 con Selenium 4 y Java ↗</a><small>Udemy</small></li>
+                        <li><a href="https://www.udemy.com/course/master-automatizacion-de-pruebas-con-selenium-y-python/?referralCode=9AFDA537C7FFB89AC40D" target="_blank" rel="noopener">Master Automatización de Pruebas con Selenium y Python ↗</a><small>Udemy</small></li>
+                        <li><a href="https://www.udemy.com/course/java-desde-0-para-pruebas-automatizadas/?referralCode=98EC1E8B08A54D8F76D2" target="_blank" rel="noopener">Java Desde 0 - Para Pruebas Automatizadas ↗</a><small>Udemy</small></li>
+                        <li><a href="https://www.udemy.com/course/curso-de-jira-para-equipos-agiles-desde-0/?referralCode=15D1910F0419FCDAC655" target="_blank" rel="noopener">Uso de Jira en equipos ágiles desde 0 ↗</a><small>Udemy</small></li>
+                        <li><a href="https://www.udemy.com/course/xray-en-jira-curso-esencial/?referralCode=E23135DBEB4C63BDE676" target="_blank" rel="noopener">Xray en Jira: Curso Esencial para Gestión de Pruebas ↗</a><small>Udemy</small></li>
+                    </ul>
+                </article>
+
+                <article class="panel" id="contact" data-title-es="CONTACTO.MSG" data-title-en="CONTACT.MSG">
+                    <h2 data-es="Contacto" data-en="Contact">Contacto</h2>
+                    <div class="contact-links">
+                        <button type="button" class="contact-copy" data-copy="farias3felipe@gmail.com" data-label-es="Copiar el correo farias3felipe@gmail.com" data-label-en="Copy the email farias3felipe@gmail.com"><span class="ci">@</span>farias3felipe@gmail.com</button>
+                        <a href="https://www.linkedin.com/in/felipefariasalfaro/" target="_blank" rel="noopener"><span class="ci">in</span>LinkedIn ↗</a>
+                        <a href="https://github.com/FelipeFariasAlfaro" target="_blank" rel="noopener"><span class="ci">&lt;/&gt;</span>GitHub ↗</a>
+                        <a href="https://centyc.cl" target="_blank" rel="noopener"><span class="ci">www</span>centyc.cl ↗</a>
+                        <p class="copy-note" id="copyNote" role="status" aria-live="polite"></p>
                     </div>
-                </div>
-                <div class="skill-window" id="win-tools">
-                    <div class="window-titlebar">
-                        <div class="window-dots">
-                            <span class="wdot red"></span>
-                            <span class="wdot yellow"></span>
-                            <span class="wdot green"></span>
-                        </div>
-                        <span class="window-title" data-es="Herramientas y Metodologías" data-en="Tools and Methodologies">Herramientas y Metodologías</span>
-                    </div>
-                    <div class="window-body">
-                        <ul>
-                            <li>Git</li>
-                            <li>Jira</li>
-                            <li>SAFe / Agile / Scrum</li>
-                            <li>MySQL / SQL Server / Oracle</li>
-                            <li>CI/CD</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="skill-window" id="win-lead">
-                    <div class="window-titlebar">
-                        <div class="window-dots">
-                            <span class="wdot red"></span>
-                            <span class="wdot yellow"></span>
-                            <span class="wdot green"></span>
-                        </div>
-                        <span class="window-title" data-es="Liderazgo y Educación" data-en="Leadership and Education">Liderazgo y Educación</span>
-                    </div>
-                    <div class="window-body">
-                        <ul>
-                            <li data-es="Liderazgo técnico" data-en="Technical Leadership">Liderazgo técnico</li>
-                            <li>Instructor Udemy y <a href="https://centyc.cl" target="_blank" class="company-link">Centyc</a></li>
-                            <li data-es="Creación de frameworks" data-en="Framework creation">Creación de frameworks</li>
-                            <li data-es="Psicología" data-en="Psychology">Psicología</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="skill-window" id="win-ia">
-                    <div class="window-titlebar">
-                        <div class="window-dots">
-                            <span class="wdot red"></span>
-                            <span class="wdot yellow"></span>
-                            <span class="wdot green"></span>
-                        </div>
-                        <span class="window-title" data-es="Inteligencia Artificial" data-en="Artificial Intelligence">Inteligencia Artificial</span>
-                    </div>
-                    <div class="window-body">
-                        <ul>
-                            <li data-es="Creación e integración de agentes de IA en aplicaciones y flujos de calidad" data-en="Creation and integration of AI agents in applications and quality workflows">Creación e integración de agentes de IA en aplicaciones y flujos de calidad</li>
-                            <li data-es="Uso estratégico de IA en ciclos de calidad, desarrollo de pruebas, ejecución, análisis y documentación" data-en="Strategic use of AI in quality cycles, test development, execution, analysis and documentation">Uso estratégico de IA en ciclos de calidad, desarrollo de pruebas, ejecución, análisis y documentación</li>
-                            <li data-es="Vectorización y grafos" data-en="Vectorization and graphs">Vectorización y grafos</li>
-                            <li data-es="Testing a aplicaciones con IA Generativa: LLM como Juez y validaciones semánticas" data-en="Testing AI-powered applications: LLM as Judge and semantic validations">Testing a aplicaciones con IA Generativa: LLM como Juez y validaciones semánticas</li>
-                        </ul>
-                    </div>
-                </div>
+                </article>
             </div>
-            <div class="skills-taskbar">
-                <button class="taskbar-btn active" data-target="win-qa" aria-label="Automation and QA">
-                    <span class="taskbar-icon">&#x1F916;</span>
-                    <span class="taskbar-label" data-es="QA" data-en="QA">QA</span>
-                </button>
-                <button class="taskbar-btn" data-target="win-lang" aria-label="Languages and Frameworks">
-                    <span class="taskbar-icon">&#x1F4BB;</span>
-                    <span class="taskbar-label" data-es="Code" data-en="Code">Code</span>
-                </button>
-                <button class="taskbar-btn" data-target="win-tools" aria-label="Tools and Methodologies">
-                    <span class="taskbar-icon">&#x1F527;</span>
-                    <span class="taskbar-label" data-es="Tools" data-en="Tools">Tools</span>
-                </button>
-                <button class="taskbar-btn" data-target="win-lead" aria-label="Leadership and Education">
-                    <span class="taskbar-icon">&#x1F393;</span>
-                    <span class="taskbar-label" data-es="Lead" data-en="Lead">Lead</span>
-                </button>
-                <button class="taskbar-btn" data-target="win-ia" aria-label="Artificial Intelligence">
-                    <span class="taskbar-icon">&#x1F9E0;</span>
-                    <span class="taskbar-label">IA</span>
-                </button>
-            </div>
-        </div>
-    </section>
-    <section id="projects" class="section">
-        <h2 class="section-title pixel-text" data-es="// Proyectos" data-en="// Projects">// Proyectos</h2>
-        <p class="projects-subtitle" data-es="Estos son proyectos completamente creados por mí" data-en="These are projects entirely created by me"><span id="projectsTyped"></span><span class="cursor">_</span></p>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-card-front">
-                    <div class="project-icon"><img src="assets/images/judo_logo_black.png" alt="Judo Framework" class="project-logo project-logo-large"></div>
-                </div>
-                <div class="project-card-back">
-                    <div>
-                        <h3>Judo Framework</h3>
-                        <p data-es="Framework Open Source de automatización de pruebas para API Rest en Python. Crea pruebas de api en minutos sin necesidad de crear código." data-en="Open Source test automation framework for REST APIs in Python. Create API tests in minutes without writing code.">Framework Open Source de automatización de pruebas para API Rest en Python. Crea pruebas de api en minutos sin necesidad de crear código.</p>
-                    </div>
-                    <a href="https://centyc.cl/judo-framework" target="_blank" class="project-link" data-es="[ Ver más ]" data-en="[ View ]">[ Ver más ]</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-front">
-                    <div class="project-icon"><img src="assets/images/HakaBuddy.png" alt="Hakabuddy" class="project-logo project-logo-xlarge"></div>
-                </div>
-                <div class="project-card-back">
-                    <div>
-                        <h3>Hakabuddy</h3>
-                        <p data-es="Aplicación de escritorio para automatizar la creación de reportes y pruebas de software. De lo manual, a la automatización iterativa y a un pipeline en minutos!" data-en="Desktop application to automate the creation of reports and software testing. From manual to iterative automation and a pipeline in minutes!">Aplicación de escritorio para automatizar la creación de reportes y pruebas de software. De lo manual, a la automatización iterativa y a un pipeline en minutos!</p>
-                    </div>
-                    <a href="https://hakalab.com/hakabuddy" target="_blank" class="project-link" data-es="[ Ver más ]" data-en="[ View ]">[ Ver más ]</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-front">
-                    <div class="project-icon"><img src="assets/images/Hakapath.png" alt="Hakapath" class="project-logo project-logo-medium"></div>
-                </div>
-                <div class="project-card-back">
-                    <div>
-                        <h3>Hakapath</h3>
-                        <p data-es="Complemento de Google Chrome que permite crear localizadores web para automatización con tan solo unos cliks." data-en="Google Chrome extension that allows you to create web locators for automation with just a few clicks.">Complemento de Google Chrome que permite crear localizadores web para automatización con tan solo unos cliks.</p>
-                    </div>
-                    <a href="https://hakalab.com/hakapath" target="_blank" class="project-link" data-es="[ Ver más ]" data-en="[ View ]">[ Ver más ]</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-front">
-                    <div class="project-icon"><img src="assets/images/HakaBoost.png" alt="HakaBoost" class="project-logo project-logo-large-plus"></div>
-                </div>
-                <div class="project-card-back">
-                    <div>
-                        <h3>Hakaboost</h3>
-                        <p data-es="Asistente de calidad de software impulsado por Inteligencia Artificial" data-en="AI-powered software quality assistant">Asistente de calidad de software impulsado por Inteligencia Artificial</p>
-                    </div>
-                    <a href="https://hakalab.com/hakaboost" target="_blank" class="project-link" data-es="[ Ver más ]" data-en="[ View ]">[ Ver más ]</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-front">
-                    <div class="project-icon"><img src="assets/images/Haka Insight.png" alt="HakaInsight" class="project-logo project-logo-large-plus"></div>
-                </div>
-                <div class="project-card-back">
-                    <div>
-                        <h3>HakaInsight</h3>
-                        <p data-es="Complemento de Visual Studio Code impulsado por Inteligencia Artificial que permite analizar código fuente identificando funcionalidades, establecer relaciones y crear revisiones de calidad y seguridad." data-en="Visual Studio Code extension powered by Artificial Intelligence that allows you to analyze source code identifying functionalities, establishing relationships and creating quality and security reviews.">Complemento de Visual Studio Code impulsado por Inteligencia Artificial que permite analizar código fuente identificando funcionalidades, establecer relaciones y crear revisiones de calidad y seguridad.</p>
-                    </div>
-                    <a href="https://hakalab.com/haka-insight" target="_blank" class="project-link" data-es="[ Ver más ]" data-en="[ View ]">[ Ver más ]</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-front">
-                    <div class="project-icon"><img src="assets/images/AI Studio.png" alt="Haka AI Studio" class="project-logo project-logo-medium"></div>
-                </div>
-                <div class="project-card-back">
-                    <div>
-                        <h3>Haka AI Studio</h3>
-                        <p data-es="Aplicación impulsada por IA y Playwright Code Gen especializada en el Haka Engine, permite construir pruebas automatizadas en minutos" data-en="Application powered by AI and Playwright Code Gen specialized in the Haka Engine, allows you to build automated tests in minutes">Aplicación impulsada por IA y Playwright Code Gen especializada en el Haka Engine, permite construir pruebas automatizadas en minutos</p>
-                    </div>
-                    <a href="https://hakalab.com/" target="_blank" class="project-link" data-es="[ Ver más ]" data-en="[ View ]">[ Ver más ]</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="publications" class="section">
-        <h2 class="section-title pixel-text" data-es="// Publicaciónes" data-en="// Publications">// Publicaciónes</h2>
-        <div class="publications-list">
-            <a href="https://www.linkedin.com/in/felipefariasalfaro/recent-activity/articles/" target="_blank" class="publication-item">
-                <span class="pub-icon">&#x1F4D6;</span>
-                <div>
-                    <h3 data-es="Artículos de LinkedIn" data-en="LinkedIn Articles">Artículos de LinkedIn</h3>
-                    <p class="pub-type" data-es="Artículos" data-en="Articles">Artículos</p>
-                </div>
-            </a>
-            <div class="publication-item">
-                <span class="pub-icon">&#x1F4D6;</span>
-                <div>
-                    <h3>El Camino de la Tragedia</h3>
-                    <p class="pub-type" data-es="Libro" data-en="Book">Libro</p>
-                </div>
-            </div>
-            <div class="publication-item">
-                <span class="pub-icon">&#x1F4D6;</span>
-                <div>
-                    <h3 data-es="Estudiar en tiempos convulsionados" data-en="Studying in turbulent times">Estudiar en tiempos convulsionados</h3>
-                    <p class="pub-type" data-es="Libro" data-en="Book">Libro</p>
-                </div>
-            </div>
-            <div class="publication-item">
-                <span class="pub-icon">&#x1F4D6;</span>
-                <div>
-                    <h3 data-es="Fragmentos sobre pesadillas y demonios" data-en="Fragments about nightmares and demons">Fragmentos sobre pesadillas y demonios</h3>
-                    <p class="pub-type" data-es="Publicación" data-en="Publication">Publicación</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="courses" class="section">
-        <h2 class="section-title pixel-text" data-es="// Mis cursos" data-en="// My Courses">// Mis cursos</h2>
-        <p class="courses-subtitle" data-es="Puedes encontrar todos mis cursos en centyc.cl o en udemy.com" data-en="You can find all my courses at centyc.cl or udemy.com">Puedes encontrar todos mis cursos en <a href="https://centyc.cl" target="_blank" class="company-link">centyc.cl</a> o en <a href="https://www.udemy.com/user/felipe-farias-3/?srsltid=AfmBOorm9HhCnjv3YheHDjToAYg15PND3799oYuu1BxYFc-feqOu3wi0" target="_blank" class="company-link">udemy.com</a></p>
-        <div class="courses-list">
-            <a href="https://www.udemy.com/course/intensivo-automatizacion-de-pruebas-con-karate/?referralCode=26D91D21EA272C36E24A" target="_blank" class="course-item">
-                <span class="course-icon">🥋</span>
-                <div>
-                    <h3>[Actualizado] Automatización de Pruebas de API con Karate</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-            <a href="https://www.udemy.com/course/playwright-desde-0-con-java/?referralCode=C9E1500A0895018ABF52" target="_blank" class="course-item">
-                <span class="course-icon">🎭</span>
-                <div>
-                    <h3>PlayWright Desde 0 con Java y Cucumber</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-            <a href="https://www.udemy.com/course/automatizacion-de-pruebas-con-selenium-y-java/?referralCode=8D9349B34DC4BDD4F976" target="_blank" class="course-item">
-                <span class="course-icon">🦁</span>
-                <div>
-                    <h3>Master de Automatización desde 0 con Selenium 4 y Java</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-            <a href="https://www.udemy.com/course/master-automatizacion-de-pruebas-con-selenium-y-python/?referralCode=9AFDA537C7FFB89AC40D" target="_blank" class="course-item">
-                <span class="course-icon">🐍</span>
-                <div>
-                    <h3>Master Automatización de Pruebas con Selenium y Python</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-            <a href="https://www.udemy.com/course/java-desde-0-para-pruebas-automatizadas/?referralCode=98EC1E8B08A54D8F76D2" target="_blank" class="course-item">
-                <span class="course-icon">☕</span>
-                <div>
-                    <h3>Java Desde 0 - Para Pruebas Automatizadas</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-            <a href="https://www.udemy.com/course/curso-de-jira-para-equipos-agiles-desde-0/?referralCode=15D1910F0419FCDAC655" target="_blank" class="course-item">
-                <span class="course-icon">⚙️</span>
-                <div>
-                    <h3>Uso de Jira en equipos ágiles desde 0</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-            <a href="https://www.udemy.com/course/xray-en-jira-curso-esencial/?referralCode=E23135DBEB4C63BDE676" target="_blank" class="course-item">
-                <span class="course-icon">🔍</span>
-                <div>
-                    <h3>Xray en Jira: Curso Esencial para Gestión de Pruebas</h3>
-                    <p class="course-platform">Udemy</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <section id="contact" class="section">
-        <h2 class="section-title pixel-text" data-es="// Contacto" data-en="// Contact">// Contacto</h2>
-        <div class="contact-grid">
-            <a href="mailto:farias3felipe@gmail.com" class="contact-item">
-                <span class="contact-icon">&#x1F4E7;</span><span>farias3felipe@gmail.com</span>
-            </a>
-            <a href="https://www.linkedin.com/in/felipefariasalfaro/" target="_blank" class="contact-item">
-                <span class="contact-icon">&#x1F4BC;</span><span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/FelipeFariasAlfaro" target="_blank" class="contact-item">
-                <span class="contact-icon">&#x1F419;</span><span>GitHub</span>
-            </a>
-            <a href="https://centyc.cl" target="_blank" class="contact-item">
-                <span class="contact-icon">&#x1F310;</span><span>centyc.cl</span>
-            </a>
-        </div>
-    </section>
-    <footer class="pixel-footer">
-        <p data-es="Hecho con café y pixels | Felipe Farías A. 2026" data-en="Made with coffee and pixels | Felipe Farías A. 2026">Hecho con café y pixels | Felipe Farías A. 2026</p>
-    </footer>
-    <script src="assets/js/script.js"></script>
+            <footer class="window-status">
+                <span data-es="Listo" data-en="Ready">Listo</span>
+                <span data-es="Hecho con café y píxeles · Felipe Farías A. 2026" data-en="Made with coffee and pixels · Felipe Farías A. 2026">Hecho con café y píxeles · Felipe Farías A. 2026</span>
+            </footer>
+        </section>
+    </div>
+
+    <script src="assets/js/script.js?v=20261107"></script>
 </body>
 </html>
